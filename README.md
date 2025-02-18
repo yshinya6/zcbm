@@ -1,5 +1,8 @@
 # [Zero-shot Concept Bottleneck Models](https://arxiv.org/abs/2502.09018)
-We are preparing to provide pre-computed faiss indices. Stay tuned!
+We introduce an interpretable model family called zero-shot concept bottleneck models (Z-CBMs), which predict concepts and labels in a fully zero-shot manner without training neural networks. Z-CBMs utilize a large-scale concept bank, which is composed of millions of vocabulary extracted from the web, to describe arbitrary input in various domains. For the input-to-concept mapping, we introduce concept retrieval, which dynamically finds input-related concepts by the cross-modal search on the concept bank. In the concept-to-label inference, we apply concept regression to select essential concepts from the retrieved concepts by sparse linear regression.
+
+![image](https://github.com/user-attachments/assets/75b117ac-a94d-4389-8b5b-09610177e89d)
+
 
 ## Requirements
 - An NVIDIA GPU (we used an A100 with 80 GB VRAM)
@@ -20,6 +23,7 @@ python concept_collector.py --dataset cc3m --metadata_path ./metadata/CC3M/Image
 ```
 
 ### Concept bank construction
+[2025/2/18] We are preparing to provide pre-computed faiss indices. Stay tuned!
 
 ```bash
 python concept_construction.py --model "ViT-B/32" --base_concepts base_concepts/{flickr30k,cc3m,cc12m,yfcc15m}.yaml --filtering_similar --use_faiss_gpu
