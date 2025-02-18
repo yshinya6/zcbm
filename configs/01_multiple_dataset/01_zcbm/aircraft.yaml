@@ -1,0 +1,24 @@
+pattern: ZCBM
+main: main/inference.py
+batchsize: 64
+experiment_iterations: 1
+models:
+  pattern: CLIP-ViT-B32
+  classifier:
+    func: model/zeroshot_cbm.py
+    name: ZCBM
+    args:
+      backbone_name: ViT-B/32
+      classname_file: data/classnames/fgvc_aircraft.txt
+      metadata_path: concept_bank/all.txt
+      concept_index: index/all_ViT-B32_index.bin
+      num_concept_candidates: 2048
+      num_present_concepts: 16
+      selection_strategy: lasso
+      alpha: 1.0e-5
+
+dataset:
+  dataset_func: data/generic.py
+  dataset_name: Aircraft
+  args:
+    test: True

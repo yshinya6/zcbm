@@ -1,0 +1,34 @@
+pattern: LP
+main: main/train.py
+batchsize: 64
+epoch: 100
+snapshot_interval: 1
+experiment_iterations: 1
+log_interval: 1
+train_val_split_ratio: 0.9
+
+models:
+  pattern: CLIP-ViT-B-32
+  classifier:
+    func: model/lp_zcbm.py
+    name: LpCLIP
+    args:
+      num_classes: 47
+
+dataset:
+  dataset_func: data/generic.py
+  dataset_name: DTD
+  args:
+    test: False
+
+optimizer_c:
+  algorithm: AdamW
+  lr_milestone: cosine
+  warmup: 50
+  args:
+    lr: 3.0e-3
+    weight_decay: 0.1
+    
+updater:
+  func: updater/classification.py
+  name: ClassifierUpdater

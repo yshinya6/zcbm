@@ -1,0 +1,18 @@
+pattern: Zeroshot
+main: main/inference.py
+batchsize: 64
+experiment_iterations: 1
+models:
+  pattern: CLIP-ViT-B_32
+  classifier:
+    func: model/zeroshot_clip.py
+    name: ZeroshotCLIP
+    args:
+      backbone_name: "ViT-B/32"
+      classname_file: "data/classnames/oxford_flowers.txt"
+
+dataset:
+  dataset_func: data/generic.py
+  dataset_name: Flower
+  args:
+    test: True

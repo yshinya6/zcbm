@@ -1,0 +1,28 @@
+pattern: LP-ZCBM
+main: main/inference.py
+batchsize: 64
+experiment_iterations: 1
+
+models:
+  pattern: CLIP-ViT-B-32
+  classifier:
+    func: model/lp_zcbm.py
+    name: LpZCBM
+    args:
+      num_classes: 102
+      pretrained_path: pretrained/lp_clip_vit-b32_flower.pt
+      backbone_name: ViT-B/32
+      classname_file: data/classnames/oxford_flowers.txt
+      metadata_path: concept_bank/all.txt
+      concept_index: index/all_ViT-B32_index.bin
+      num_concept_candidates: 2048
+      num_present_concepts: 16
+      selection_strategy: lasso
+      alpha: 1.0e-5
+      use_faiss_gpu: True
+
+dataset:
+  dataset_func: data/generic.py
+  dataset_name: Flower
+  args:
+    test: True
