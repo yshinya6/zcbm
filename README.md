@@ -23,7 +23,6 @@ python concept_collector.py --dataset cc3m --metadata_path ./metadata/CC3M/Image
 ```
 
 ### Concept bank construction
-[2025/2/18] We are preparing to provide pre-computed faiss indices. Stay tuned!
 
 ```bash
 python concept_construction.py --model "ViT-B/32" --base_concepts base_concepts/{flickr30k,cc3m,cc12m,yfcc15m}.yaml --filtering_similar --use_faiss_gpu
