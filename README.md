@@ -36,11 +36,11 @@ python main/inference.py --config_path configs/01_multiple_dataset/imagenet.yaml
 ```
 
 ## Citation
-```
-@article{yamaguchi_2025_ZCBM,
+```bibtex
+@inproceedings{Yamaguchi_ICME26_ZCBM,
   title={Zero-shot Concept Bottleneck Models},
   author={Yamaguchi, Shin'ya and Nishida, Kosuke and Chijiwa, Daiki and Ida, Yasutoshi},
-  journal={arXiv preprint arXiv:2502.09018},
-  year={2025}
+  booktitle={IEEE International Conference on Multimedia and Expo},
+  year={2026}
 }
 ```
